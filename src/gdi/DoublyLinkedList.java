@@ -56,6 +56,30 @@ public class DoublyLinkedList {
         }
     }
     
+    public static void main(String[] args) {
+       DoublyLinkedList liste = new DoublyLinkedList();
+       liste.add(4);
+       liste.add(5);
+       liste.add(3);
+       liste.remove(5);
+       System.out.println(liste);
+    }
+    
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        if (this.isEmpty()) {
+            return "";
+        }
+        result.append(root.value);
+        ListElement current = root.next;
+        while (current != null) {
+            result.append(",");
+            result.append(current.value);
+            current = current.next;
+        }
+        return result.toString();
+    }
+    
     boolean contains(int v) {
         if (isEmpty()) {
             return false;
